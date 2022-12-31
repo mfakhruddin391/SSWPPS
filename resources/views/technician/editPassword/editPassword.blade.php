@@ -1,7 +1,7 @@
 @extends('layouts.dashboardParent')
 @section('title','Create New Task')
 @section('contentDashboard')
-@section('pageTitle','Create New Technician')
+@section('pageTitle','Reset Password')
 <!-- Main content -->
 <section class="content">
    <div class="container-fluid">
@@ -19,25 +19,9 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form method="POST" action="storeTech">
+          <form method="POST" action="/updatePassword">
             @csrf
             <div class="card-body">
-              <div class="form-group">
-                <label for="fullname">technician's full name</label>
-                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter technician's full name" required>
-              </div>
-              <div class="form-group">
-                <label for="username">technician's nickname</label>
-                <input type="text" class="form-control" id="username" name="nickname" placeholder="Enter technician nickname" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Enter email" required>
-              </div>
-              <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
-              </div>
               <div class="form-group">
                 <label for="pw">password</label>
                 <input type="password" class="form-control pw" id="pw" name="password" placeholder="Enter passowrd" required>
@@ -49,16 +33,7 @@
                 </div>
                 <input type="password" class="form-control pw2" id="pw2" name="password_confirm" placeholder="Enter passowrd" aria-describedby="basic-addon1" required>
 
-              </div>
-              <div class="form-group">
-                <label for="telno">Telephone No.</label>
-                <input type="text" class="form-control" id="telno" name="phone_no" placeholder="Enter phone number" required>
-              </div>
-              <!--
-              <div class="form-group">
-                <label for="tech_pic">technician profile picture</label>
-                <input type="file" class="form-control" id="tech_pic" name="profile_pic">
-              </div>-->
+              </div>   
             </div>
             <!-- /.card-body -->
 

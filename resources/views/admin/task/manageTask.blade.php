@@ -50,7 +50,12 @@
               taskId="{{$task->id}}"
               taskNo="{{$loop->iteration}}"
               {{$task->task_progress_status_id == 1? 'hidden' : ''}}>Assign Task</a>
-              <a class="btn btn-danger deleteTech" title="Delete Task" {{$task->task_progress_status_id == 1? 'hidden' : ''}}>Delete</a></td>
+              
+              <a data-toggle="modal" data-target="#deleteModal"  
+              class="btn btn-danger deleteTask" title="Delete Task"
+              taskId="{{$task->id}}"
+              taskNo="{{$loop->iteration}}"
+              {{$task->task_progress_status_id == 1? 'hidden' : ''}}>Delete</a></td>
              
           </tr>   
           @endforeach
@@ -115,6 +120,28 @@
     </div>
   </div>
 </div>
+
+ <!-- Modal -->
+ <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete notification</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure want to delete task <b class="taskNo">Test</b>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a class="deleteUsingTaskId" href=""><button type="button" class="btn btn-danger">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
  </section>
  @push('BottomHeader')
  <!-- DataTables  & Plugins -->
@@ -142,9 +169,19 @@
       $('.taskNoLabel').html(no);
       console.log("hello");
       console.log(no);
+    });
 
+    $('.deleteTask').click(function(){
+    
+      var taskid = $(this).attr('taskId');
+      var taskno = $(this).attr('taskNo');
+      var deleteRoute = "deleteTask/"+taskid+"";
+
+      $('.taskNo').html(taskno);
+      $('.deleteUsingTaskId').attr('href',deleteRoute);
 
     });
+
 
      $("#example1").DataTable({
        "responsive": true, "lengthChange": false, "autoWidth": false,

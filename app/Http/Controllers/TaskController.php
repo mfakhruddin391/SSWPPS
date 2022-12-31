@@ -40,7 +40,7 @@ class TaskController extends Controller
     {
         $page = "task";
         $tasks = Task::where('task_progress_status_id','!=',3)->get();
-        $technicians = Technician::all();
+        $technicians = Technician::where('isActive',1)->get();
         $completedTasks = Task::where('task_progress_status_id',3)->get();
         return view('admin.task.manageTask',compact('page','tasks','technicians','completedTasks'));
     }
@@ -84,6 +84,14 @@ class TaskController extends Controller
        
     return redirect('/distributedTask')->with('success','Report successfully submitted!');
 
+    }
+
+    public function delete($id)
+    {
+        $task = Task::find($id);
+        $task->delete();
+        return back()->with('success',"Task successfully deleted");
+     
     }
   
 }

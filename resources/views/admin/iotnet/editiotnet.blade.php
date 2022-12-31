@@ -26,13 +26,13 @@
             <div class="card-body">
                 <input type="Text" name="id" value="{{$iotnet->id}}" hidden>
               <div class="form-group">
-                <label for="apiname">Cloud API label</label>
+                <label for="apiname">SSWPPS IoT Net Name</label>
                 <input type="text" class="form-control" id="cloudapi" name="api_label" value="{{$iotnet->iotnet_name}}" placeholder="Short name for the API as references" required>
               </div>
-              <div class="form-group">
+              <!--<div class="form-group">
                 <label for="cloudAPI">IoT Net Cloud API</label>
                 <input type="text" class="form-control" id="cloudapi" name="cloud_api" value="{{$iotnet->iotnet_cloud_API}}" placeholder="API received from the Cloud Services ie: Google Cloud Platform" required>
-              </div>
+              </div>-->
               <div class="form-group">
                 <label for="address">State</label>
                 <select name="state" class="form-control" placeholder="test">

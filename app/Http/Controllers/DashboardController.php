@@ -36,6 +36,10 @@ class DashboardController extends Controller
         $dashboardContent['newTask'] = Task::where('technician_id',Auth::guard('techGuard')->id())->count();
         $dashboardContent['CompletedTask'] = Task::where('technician_id',Auth::guard('techGuard')->id())->where('task_progress_status_id',3)->count();
         $dashboardContent['iotImplemented'] = IoT_net::count();
+        }else{
+
+            return back()->withErrors(['you are not authorize to access the page']);
+
         }
 
         session()->put('full_name',$getUser->full_name);

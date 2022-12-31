@@ -5,12 +5,13 @@
 			   @csrf
 				<div class="input-group">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-					<input id="user" type="text" class="form-control" name="username" value="" placeholder="Username">                                        
+					<input id="user" type="text" class="form-control" name="username" value="" placeholder="Username" required>                                        
 				</div>
 
 				<div class="input-group">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-					<input id="password" type="password" class="form-control" name="password" placeholder="Password">
+					<input id="password" type="password" class="form-control inputPassword" name="password" placeholder="Password" required>
+					<span class="input-group-addon "><i class="glyphicon glyphicon-eye-open showPassword" id="togglePassword" style="cursor: pointer;"></i>
 				</div> 
 				<div class="form-check">
 					<input type="checkbox" class="form-check-input" id="exampleCheck1">

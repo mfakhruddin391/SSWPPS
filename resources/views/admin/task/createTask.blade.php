@@ -22,8 +22,8 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">SSWPPS IoT-Net :</label>
-                <select class="form-control" name="iotnetid">
-                  <option selected disabled>Please select the SSWPPS-IoT Net</option>
+                <select class="form-control" name="iotnetid" required>
+                  <option value="">Please select the SSWPPS-IoT Net</option>
                   @foreach ($iotnets as $iotnet )
                     <option value="{{$iotnet->id}}">{{$iotnet->iotnet_name}}</option>
                   @endforeach
@@ -31,7 +31,7 @@
               </div>
               <div class="form-group">
                 <label>Description</label>
-                <textarea class="form-control" name="description"></textarea>
+                <textarea class="form-control" name="description" required></textarea>
               </div>
             </div>
             <!-- /.card-body -->

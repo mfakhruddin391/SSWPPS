@@ -36,13 +36,13 @@
             <tr id={{$iotnet->id}}>
             <td>{{$loop->iteration}}</td>
             <td>{{$iotnet->iotnet_name}}</td> 
-            <td>{{$iotnet->iotnet_cloud_API}}</td>
+            <td>{{$iotnet->state->state_name}}</td>
             <td>
               <a  data-toggle="modal" data-target="#viewModal" 
               class="btn btn-warning viewIotNet" 
               IotnetId="{{$iotnet->id}}"
               IotnetName="{{$iotnet->iotnet_name}}"
-              IotnetCloudAPI = "{{$iotnet->iotnet_cloud_API}}"
+              IotnetCloudAPI = "{{$iotnet->add}}"
               IotnetAddress = "{{$iotnet->iotnet_location_address}}"
               IotnetState  = "{{$iotnet->state->state_name}}"
               
@@ -96,7 +96,7 @@
       </div>
       <div class="modal-body">
         Iot-Net Name:<input type="text" disabled class="form-control iotnetname"><br/>
-        Cloud API :<input type="text" disabled class="form-control cloudapi"><br/>
+        <!--Cloud API :<input type="text" disabled class="form-control cloudapi"><br/>-->
         State :<input type="text" disabled class="form-control iotnetstate"><br/>
         Address :<br/>
         <textarea class="form-control iotnetaddress" disabled></textarea>

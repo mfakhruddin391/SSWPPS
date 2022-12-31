@@ -65,13 +65,21 @@
               <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
           </li>-->
+          @if(Auth::guard('techGuard')->check())
+          <li class="nav-item">
+            <a class="nav-link" role="button" href="/editPassword">
+                Reset Password
+            </a>
+          </li>
+          @endif
           <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
               <i class="fas fa-expand-arrows-alt"></i>
             </a>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href="logout" role="button">
+            <a class="nav-link" role="button" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-power-off"></i>
             </a>
           </li>
@@ -93,7 +101,7 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+             <!-- <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">-->
             </div>
             <div class="info">
               <a href="#" class="d-block">{{Session::get('full_name')}}</a>
@@ -244,4 +252,25 @@
       <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+
+     <!-- Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Logout Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure want to logout?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <a href="{{route('logout')}}"><button type="button" class="btn btn-danger">Yes</button></a>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection

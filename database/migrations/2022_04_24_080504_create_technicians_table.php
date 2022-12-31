@@ -22,6 +22,7 @@ class CreateTechniciansTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('email');
+            $table->boolean('isActive');
             $table->rememberToken();
             $table->timestamps();
         });

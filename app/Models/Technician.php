@@ -10,7 +10,7 @@ class Technician extends Authenticatable
 {
     use HasFactory;
     protected $table = 'technicians';
-    protected $fillable = ['full_name','nickname','profile_pic','username','password','email','phone_no'];
+    protected $fillable = ['full_name','nickname','profile_pic','username','password','email','isActive','phone_no'];
 
     public function task()
     {

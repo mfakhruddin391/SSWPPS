@@ -23,13 +23,14 @@
             @csrf
             <div class="card-body">
               <div class="form-group">
-                <label for="apiname">Cloud API label</label>
+                <label for="apiname">SSWPPS IoT Net Name</label>
                 <input type="text" class="form-control" id="cloudapi" name="api_label" placeholder="Short name for the API as references" required>
               </div>
+              <!--
               <div class="form-group">
                 <label for="cloudAPI">IoT Net Cloud API</label>
                 <input type="text" class="form-control" id="cloudapi" name="cloud_api" placeholder="API received from the Cloud Services ie: Google Cloud Platform" required>
-              </div>
+              </div>-->
               <div class="form-group">
                 <label for="address">State</label>
                 <select name="state" class="form-control" placeholder="test">

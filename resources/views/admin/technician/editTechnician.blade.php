@@ -40,24 +40,24 @@
                 <label for="telno">Telephone No.</label>
                 <input value="{{$technician->phone_no}}" type="text" class="form-control" id="telno" name="phone_no" placeholder="Enter phone number" required>
               </div>
+              <!--
               <div class="form-group">
                 <label for="tech_pic">technician profile picture</label>
                 <input value="{{$technician->profile_pic}}" type="file" class="form-control" id="tech_pic" name="profile_pic">
-              </div>
+              </div>-->
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
                 <a href="/manageTech"><button type="button" class="btn btn-secondary">Back</button></a>
               <button type="submit" class="btn btn-primary">Update</button>
+              <a href="/techResetPassword/{{$technician->id}}"><button type="button" class="btn btn-danger">Reset Password</button></a>
             </div>
           </form>
         </div>
-      
      </div>
      <!-- /.row -->
      <!-- Main row -->
      <div class="row">
-       
      </div>
      <!-- /.row (main row) -->
    </div><!-- /.container-fluid -->

@@ -16,9 +16,11 @@ use App\Http\Controllers\IotnetController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('logout',[DashboardController::class,'logout']);
+Route::get('logout',[DashboardController::class,'logout'])->name('logout');
 
 Route::get('/dashboard',[DashboardController::class,'index']);
+
+Route::get('/techResetPassword/{id}',[TechController::class,'resetPassword']);
 
 //technician
 Route::get('/', function () { return view('technician/login/loginTechnician'); });
@@ -28,6 +30,8 @@ Route::middleware(['authTech'])->group(function(){
 
     Route::get('/distributedTask',[TaskController::class,'distributedTask']);
     Route::post('/completeTask',[TaskController::class,'completeTask']);
+    Route::get('/editPassword',[TechController::class,'editPassword']);
+    Route::post('/updatePassword',[TechController::class,'updatePassword']);
 });
 
 
@@ -44,6 +48,7 @@ Route::middleware(['authAdmin'])->group(function(){
     Route::post('/storeTask',[TaskController::class,'store']);
     Route::get('/manageTask',[TaskController::class,'manageTask']);
     Route::post('/assignTask',[TaskController::class,'assignTask']);
+    Route::get('deleteTask/{id}',[TaskController::class,'delete']);
 
 
     //Technician
@@ -63,7 +68,7 @@ Route::middleware(['authAdmin'])->group(function(){
     Route::post('updateIotNet',[IotnetController::class,'update'])->name('updateIotNet');
     Route::get('deleteIotNet/{id}',[IotnetController::class,'delete']);
     Route::get('/liveStatus',[IotnetController::class,'liveStatus']);
-   
+    Route::get('/liveStatusAJAXRequest',[IotnetController::class,'liveStatusAJAXRequest']);
 
    
 });

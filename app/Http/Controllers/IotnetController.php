@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Iot_net;
 use App\Models\State;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class IotnetController extends Controller
 {
     
@@ -24,12 +25,12 @@ class IotnetController extends Controller
 
         Iot_net::create([
             'iotnet_name' => $req->api_label,
-            'iotnet_cloud_API' => $req->cloud_api,
+            'iotnet_cloud_API' => 'N/A',
             'iotnet_location_address' => $req->address,
             'iotnet_state_id' => (int)$req->state,
-            
-            'iotnet_torrential' => '',
-            'iotnet_waterlvl' => '0',
+            'iotnet_status' => 6,
+            'iotnet_torrential' => 'N/A',
+            'iotnet_waterlvl' => 'N/A',
             'createdBy' => Auth::guard('adminGuard')->id(),
         ]);
 
@@ -71,7 +72,7 @@ class IotnetController extends Controller
         $update_iot = Iot_net::find($req->id);
         
         $update_iot->iotnet_name = $req->api_label;
-        $update_iot->iotnet_cloud_API = $req->cloud_api;
+        $update_iot->iotnet_cloud_API = 'N/A';
         $update_iot->iotnet_location_address = $req->address;
         $update_iot->iotnet_state_id = $req->state;
         $update_iot->save();
@@ -87,4 +88,15 @@ class IotnetController extends Controller
         return redirect('/manageIotNet')->with('success',"SSWPPS IoT-Net : $name successfully deleted.");
      
     }
+
+    public function liveStatusAJAXRequest()
+    {
+        $iotnets = DB::table("iot_nets")
+        ->join("status_dictionaries","iot_nets.iotnet_status","=","status_dictionaries.id")
+        ->get()->toArray();
+        return $iotnets;
+
+    } 
+
+    
 }
