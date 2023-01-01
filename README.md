@@ -6,5 +6,8 @@ Smart Solid Waste Pollution Prevention System(SSWPPS) its an IoT project to prov
 This project divided into two sub-system :
 
 1. SSWPPS Web-Based Management System
+* Powered by laravel PHP Framework
 
 2. SSWPPS-IoT Net
+* Raspberry Pi 2 Model B
+* Firmware to operate the sensors
