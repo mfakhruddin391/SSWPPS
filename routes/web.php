@@ -67,8 +67,11 @@ Route::middleware(['authAdmin'])->group(function(){
     Route::get('/manageIotNet/editIotNet/{id}',[IotnetController::class,'edit']);
     Route::post('updateIotNet',[IotnetController::class,'update'])->name('updateIotNet');
     Route::get('deleteIotNet/{id}',[IotnetController::class,'delete']);
-    Route::get('/liveStatus',[IotnetController::class,'liveStatus']);
-    Route::get('/liveStatusAJAXRequest',[IotnetController::class,'liveStatusAJAXRequest']);
+   // Route::get('/liveStatus',[IotnetController::class,'liveStatus']);
 
-   
+    //For SCM Plan
+    Route::get('/liveStatus',[IotnetController::class,'liveStatus2']); 
+    Route::get('/liveStatusAJAXRequest',[IotnetController::class,'liveStatusAJAXRequest']);
+    Route::get('/bySearchFiltering',[IotnetController::class,'bySearchFiltering']);
+    Route::get('/byState',[IotnetController::class,'byState']);
 });
